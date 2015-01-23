@@ -1,0 +1,11 @@
+<% @songs.each do |song| %>
+  <ul>
+    <li>
+      <%= link_to(song) do %>
+        <%= song.artist %>: <%= song.title %>, <%= song.duration %>, <%= song.price %> | <%= link_to "Show Song", song_path(song.id) %> | <%= link_to "Edit Song", edit_song_path(song.id) %> | <%= link_to 'Trash this song', song, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </li>
+  </ul>
+<% end %>
+
+<%= link_to 'New Song', new_song_path%>
